@@ -1,0 +1,1 @@
+sys.sp_spaceused
