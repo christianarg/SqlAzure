@@ -18,6 +18,7 @@ select req.session_id
 from sys.dm_exec_requests req
 OUTER APPLY sys.dm_exec_sql_text(req.sql_handle) as st1
 CROSS APPLY sys.dm_exec_query_plan(req.plan_handle) AS qp
+where req.session_id <> @@spid
 
 
 --select req.*, st1.text from sys.dm_exec_requests req
