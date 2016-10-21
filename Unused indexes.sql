@@ -1,4 +1,4 @@
-sp_spaceused
+--sp_spaceused
 
 SELECT 
 o.name AS ObjectName

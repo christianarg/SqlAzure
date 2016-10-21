@@ -16,12 +16,22 @@ dm_r.wait_resource,
 dm_es.login_name,
 dm_r.command,
 dm_r.last_wait_type
+--,dm_ws.blocking_session_id
 FROM sys.dm_os_waiting_tasks dm_ws
 INNER JOIN sys.dm_exec_requests dm_r ON dm_ws.session_id = dm_r.session_id
 INNER JOIN sys.dm_exec_sessions dm_es ON dm_es.session_id = dm_r.session_id
 CROSS APPLY sys.dm_exec_sql_text (dm_r.sql_handle) dm_t
 CROSS APPLY sys.dm_exec_query_plan (dm_r.plan_handle) dm_qp
 WHERE dm_es.is_user_process = 1
+--and dm_ws.blocking_session_id is not null
 order by wait_duration_ms desc
 GO
  
+
+ --new Style
+Select
+	session_id as blockedSession,
+	blocking_session_id as BlockingSession,
+	wait_duration_ms
+from sys.dm_os_waiting_tasks
+where blocking_session_id is not null

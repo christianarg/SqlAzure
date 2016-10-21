@@ -1,6 +1,7 @@
 SELECT
   s.session_id
   ,st1.text
+  ,s.host_name
   --,s.login_time
   --,s.host_name
   --,s.program_name
@@ -20,7 +21,7 @@ JOIN sys.dm_exec_sessions AS s
 ON c.session_id = s.session_id
 OUTER APPLY sys.dm_exec_sql_text(c.most_recent_sql_handle) as st1
 where s.host_name <> 'zeus'
-order by s.last_request_end_time desc
+order by s.last_request_end_time desc, s.status
 
 
 select getdate()

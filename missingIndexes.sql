@@ -20,7 +20,7 @@ SELECT CONVERT (varchar, getdate(), 126) AS runtime,
         END + ISNULL (mid.inequality_columns, '') + 
         ')' + 
         ISNULL (' INCLUDE (' + mid.included_columns + ')',
-                '') AS create_index_statement, 
+                ' WITH(ONLINE=ON)') AS create_index_statement, 
         migs.*, 
     mid.database_id, mid.[object_id]
     FROM sys.dm_db_missing_index_groups mig
