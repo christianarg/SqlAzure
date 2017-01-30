@@ -24,4 +24,4 @@ where s.host_name <> 'zeus'
 order by s.last_request_end_time desc, s.status
 
 
-select getdate()
+--select getdate()

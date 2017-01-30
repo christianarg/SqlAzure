@@ -1,4 +1,4 @@
-SELECT dm_ws.wait_duration_ms,
+SELECT top 100 dm_ws.wait_duration_ms,
 dm_ws.wait_type,
 dm_es.status,
 dm_t.TEXT,
@@ -28,10 +28,10 @@ order by wait_duration_ms desc
 GO
  
 
- --new Style
-Select
-	session_id as blockedSession,
-	blocking_session_id as BlockingSession,
-	wait_duration_ms
-from sys.dm_os_waiting_tasks
-where blocking_session_id is not null
+-- --new Style
+--Select
+--	session_id as blockedSession,
+--	blocking_session_id as BlockingSession,
+--	wait_duration_ms
+--from sys.dm_os_waiting_tasks
+--where blocking_session_id is not null

@@ -1,0 +1,10 @@
+C:\Users\jmjurado\AppData\Local\Temporary Projects\DotNetExample\bin\Debug\DotNetExample.exe.config
+C:\DotNetExample\DotNetExample\DotNetExample\bin\Debug\DotNetExample.exe.config
+C:\DotNetExample\DotNetExample\DotNetExample\obj\Debug\DotNetExample.csprojResolveAssemblyReference.cache
+C:\DotNetExample\DotNetExample\DotNetExample\bin\Debug\DotNetExample.exe
+C:\DotNetExample\DotNetExample\DotNetExample\bin\Debug\DotNetExample.pdb
+C:\DotNetExample\DotNetExample\DotNetExample\obj\Debug\DotNetExample.exe
+C:\DotNetExample\DotNetExample\DotNetExample\obj\Debug\DotNetExample.pdb
+C:\Users\crodriguez.SOFTENG\OneDrive- SOFTENG\Sql\Jose Manuel\DotNetExample\DotNetExample\DotNetExample\bin\Debug\DotNetExample.exe.config
+C:\Users\crodriguez.SOFTENG\OneDrive- SOFTENG\Sql\Jose Manuel\DotNetExample\DotNetExample\DotNetExample\obj\Debug\DotNetExample.exe
+C:\Users\crodriguez.SOFTENG\OneDrive- SOFTENG\Sql\Jose Manuel\DotNetExample\DotNetExample\DotNetExample\obj\Debug\DotNetExample.pdb
