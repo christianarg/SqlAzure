@@ -1,5 +1,5 @@
 -- total_cpu (acumulado)
-SELECT TOP 100 
+SELECT TOP 25 
 qs.query_hash
 ,qs.creation_time
 , qs.last_execution_time
@@ -29,7 +29,7 @@ ORDER BY qs.total_worker_time DESC, qs.last_execution_time DESC
 
 -- max_cpu (picos)
 
-SELECT TOP 100 
+SELECT TOP 25 
 qs.query_hash
 ,qs.creation_time
 , qs.last_execution_time

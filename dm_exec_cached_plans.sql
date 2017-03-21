@@ -1,3 +1,4 @@
+select count(*) dm_exec_cached_plans from sys.dm_exec_cached_plans
 
 select cp.*,t.text from sys.dm_exec_cached_plans cp
 CROSS APPLY sys.dm_exec_sql_text(cp.plan_handle) AS t 

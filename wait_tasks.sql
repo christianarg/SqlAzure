@@ -8,15 +8,15 @@ dm_es.cpu_time,
 dm_es.memory_usage,
 dm_es.logical_reads,
 dm_es.total_elapsed_time,
-dm_es.program_name,
+dm_es.client_interface_name,
 DB_NAME(dm_r.database_id) DatabaseName,
 -- Optional columns
 dm_ws.blocking_session_id,
 dm_r.wait_resource,
 dm_es.login_name,
 dm_r.command,
-dm_r.last_wait_type
---,dm_ws.blocking_session_id
+dm_r.last_wait_type,
+dm_es.host_name
 FROM sys.dm_os_waiting_tasks dm_ws
 INNER JOIN sys.dm_exec_requests dm_r ON dm_ws.session_id = dm_r.session_id
 INNER JOIN sys.dm_exec_sessions dm_es ON dm_es.session_id = dm_r.session_id
