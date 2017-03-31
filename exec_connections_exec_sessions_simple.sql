@@ -15,6 +15,7 @@ SELECT
   ,s.total_elapsed_time
   ,s.reads   writes
   ,s.logical_reads
+  ,s.client_interface_name
   --, c.*
 FROM sys.dm_exec_connections AS c
 JOIN sys.dm_exec_sessions AS s
