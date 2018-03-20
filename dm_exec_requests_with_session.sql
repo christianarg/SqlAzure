@@ -21,7 +21,7 @@ select req.session_id
 , s.[host_name]
 , s.[program_name]
 , s.client_interface_name
-
+, qp.query_plan
 from sys.dm_exec_requests req
 inner JOIN sys.dm_exec_sessions AS s ON req.session_id = s.session_id 
 CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) as st1

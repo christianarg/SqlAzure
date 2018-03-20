@@ -1,3 +1,4 @@
+-- creo que lo saqué de aquí https://social.msdn.microsoft.com/Forums/sqlserver/en-US/153a4761-f9aa-4e81-bcde-bf7c5086ff20/how-to-know-which-object-the-key-lock-is-put-on?forum=sqldatabaseengine
 SELECT  L.request_session_id AS SPID, 
         DB_NAME(L.resource_database_id) AS DatabaseName,
         O.Name AS LockedObjectName, 

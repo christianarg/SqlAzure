@@ -16,6 +16,7 @@ SELECT
   ,s.writes
   ,s.logical_reads
   ,st1.text
+  , c.most_recent_session_id
   ,c.net_transport
   ,c.protocol_type
   ,c.protocol_version
