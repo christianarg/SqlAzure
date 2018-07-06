@@ -1,5 +1,6 @@
-select req.session_id
+select top 100 req.session_id
 , req.request_id
+, req.query_hash
 , req.cpu_time
 , req.total_elapsed_time
 , req.wait_time
@@ -18,10 +19,11 @@ select req.session_id
 , req.open_transaction_count
 , req.open_resultset_count
 , req.database_id 
+, req.blocking_session_id
 , s.[host_name]
 , s.[program_name]
 , s.client_interface_name
-, qp.query_plan
+
 from sys.dm_exec_requests req
 inner JOIN sys.dm_exec_sessions AS s ON req.session_id = s.session_id 
 CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) as st1
