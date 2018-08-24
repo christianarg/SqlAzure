@@ -1,1 +1,1 @@
-select * from sys.dm_geo_replication_link_status 
+select *,getdate() currentDate , datediff(ms, last_commit, getdate()) desync from sys.dm_geo_replication_link_status
