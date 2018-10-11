@@ -1,10 +1,10 @@
 -- total_cpu (acumulado)
 SELECT TOP 25 
- qs.query_hash
+qs.query_hash
 , qs.creation_time
 , qs.last_execution_time
-, qs.execution_count,
-case
+, qs.execution_count
+, case
 	when DATEDIFF(minute, qs.creation_time, qs.last_execution_time) > 0 
 		then
 			 qs.execution_count / DATEDIFF(minute, qs.creation_time, qs.last_execution_time) 
@@ -13,24 +13,21 @@ case
 end as executions_per_minute
 , qs.total_worker_time as total_cpu_time
 , qs.max_worker_time as max_cpu_time
-, cast((qs.total_worker_time / qs.execution_count) / 1000.0 as numeric(12,2))  avg_cpu_time_ms
+, (qs.total_worker_time / qs.execution_count) / 1000 avg_cpu_time_ms
 , qs.total_elapsed_time
 , qs.max_elapsed_time
-, cast((qs.total_elapsed_time / qs.execution_count) / 1000.0 as numeric(12,2)) avg_elapsed_time_ms
+, (qs.total_elapsed_time / qs.execution_count) / 1000 avg_elapsed_time_ms
 , qs.total_logical_reads
-, cast((qs.total_logical_reads / qs.execution_count) / 1000.0 as numeric(12,2)) avg_logical_reads
 , qs.max_logical_reads
+, qs.total_logical_reads / qs.execution_count / 1000 avg_logical_reads
 , qs.total_physical_reads
 , qs.max_physical_reads
 , qs.total_dop
 , qs.max_dop
+, qs.last_dop
+, qs.total_dop / qs.execution_count avg_dop
 , t.[text]
 , qp.query_plan
-, t.dbid
-, t.objectid
-, t.encrypted
-, qs.plan_handle
-, qs.plan_generation_num 
 FROM sys.dm_exec_query_stats qs 
 CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS t 
 CROSS APPLY sys.dm_exec_query_plan(plan_handle) AS qp 
